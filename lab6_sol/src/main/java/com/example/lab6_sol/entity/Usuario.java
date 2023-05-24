@@ -1,6 +1,8 @@
 package com.example.lab6_sol.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "usuario")
@@ -12,15 +14,22 @@ public class Usuario {
     private int id;
 
     @Column(nullable = false)
+    @NotBlank
+    @Size(min=3,max=100,message = "El nombre no puede tener más de 30 caracteres")
+
     private String nombres;
 
     @Column(nullable = false)
+    @NotBlank
+    @Size(min=3,max=100,message = "El nombre no puede tener más de 30 caracteres")
+
     private String apellidos;
 
-    @Column(nullable = false)
+    @Digits(integer = 8, fraction = 1)
     private String dni;
 
-    @Column(nullable = false)
+    @Positive
+    @Digits(integer = 2, fraction = 1)
     private int edad;
 
     @Column(nullable = false)
