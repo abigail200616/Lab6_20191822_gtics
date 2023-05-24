@@ -56,6 +56,7 @@ public class EstudianteController {
 
                 Usuario nuevoUsuario = new Usuario();
                 nuevoUsuario.setActivo(true);
+                nuevoUsuario.setRolid(5);
                 usuarioRepository.save(usuario);
             } else {
                 attr.addFlashAttribute("msg", "Usuario actualizado exitosamente");
